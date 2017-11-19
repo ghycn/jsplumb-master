@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>jsPlumb Toolkit</title>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_453583_m5madtvgnmu3ow29.css">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jsplumbtoolkit-defaults.css">
+    <link rel="stylesheet" href="css/jsplumbtoolkit-demo.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/context.standalone.css" type="text/css">
+</head>
+
+<body class="jtk-bootstrap jtk-bootstrap-wide jtk-drag-select">
+<div class="main">
+    <div class="header_">
+        <div class="toolbar" href="#" data-toggle="tooltip" data-placement="bottom" title="导出数据">
+            <i class="icon iconfont icon_tool icon-daochu"></i>
+        </div>
+        <div class="toolbar" href="#" data-toggle="tooltip" data-placement="bottom" title="进入/退出全屏">
+            <i class="icon iconfont icon_tool icon-quanping"></i>
+        </div>
+    </div>
+    <!-- 图形区 -->
+    <script type="text/x-jtk-templates" src="templates.html"></script>
+
+    <div class="contenter_ jtk-demo-dbase" id="jtk-demo">
+        <div class="grid node-palette" style="width: 15%">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i class="icon iconfont icon-arrfill_u-copy"></i>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            工作空间
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body ">
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="#" class="link_model concept_model">概念模型</a></li>
+                            <li class="list-group-item"><a href="#" class="link_model uml_class_model">UML类图</a></li>
+                            <li class="list-group-item"><a href="#" class="link_model physical_model">物理模型</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default" style="display: none">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <i class="icon iconfont icon-arrfill_l"></i>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                            逻辑建模
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 luoji1" data-toggle="popover">
+                                <img jtk-node-type="luoji1" src="images/luoji1.png">
+                            </div>
+                            <div class="col-md-3 luoji2" data-toggle="popover">
+                                <img jtk-node-type="luoji2" src="images/luoji2.png">
+                            </div>
+                            <div class="col-md-3 luoji3" data-toggle="popover">
+                                <img jtk-node-type="luoji3" src="images/luoji3.png">
+                            </div>
+                            <div class="col-md-3" data-toggle="popover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--功能区-->
+        <div class="grid" style="width: 85%">
+            <div class="jtk-demo-canvas">
+                <!--<div class="window jtk-node" id="flowchartWindow1"-->
+                     <!--style="width: 100px;height: 100px;border: 1px solid;top: 50px;left: 200px;">-->
+                    <!--<div class="test" style="background-color: #0d78bc">1</div>-->
+                    <!--<br/><br/></div>-->
+                <!--<div class="window jtk-node" id="flowchartWindow2"-->
+                     <!--style="width: 100px;height: 100px;border: 1px solid;top: 150px;left: 400px;">-->
+                    <!--<div class="test" style="background-color: #0d78bc">2</div>-->
+                    <!--<br/><br/></div>-->
+                <!-- controls -->
+                <div class="controls">
+                    <i class="fa fa-arrows selected-mode" mode="pan" title="Pan Mode"></i>
+                    <i class="fa fa-pencil" mode="select" title="Select Mode"></i>
+                    <i class="fa fa-home" reset title="Zoom To Fit"></i>
+                </div>
+                <div class="draggable alert alert-info alert-dismissable uml_class_model_alert"
+                     style="position: absolute;display: none">
+                    <button type="button" class="close close_alert" aria-hidden="true">
+                        &times;
+                    </button>
+                    <div class="row" style="margin-left: 10px;margin-right: -15px;margin-top: 15px;">
+                        <div class="col-md-3 uml_simple_class" data-toggle="popover">
+                            <img jtk-node-type="uml_simple_class" src="images/uml_simple_class.png">
+                        </div>
+                        <div class="col-md-3 uml_interface" data-toggle="popover">
+                            <img jtk-node-type="uml_interface" src="images/uml_interface.png">
+                        </div>
+                        <div class="col-md-3 uml_class" data-toggle="popover">
+                            <img jtk-node-type="uml_class" src="images/uml_class.png">
+                        </div>
+                        <div class="col-md-3 uml_active_class" data-toggle="popover">
+                            <img jtk-node-type="uml_active_class" src="images/uml_active_class.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="draggable alert alert-info alert-dismissable concept_model_alert"
+                     style="position: absolute;display: none">
+                    <button type="button" class="close close_alert" aria-hidden="true">
+                        &times;
+                    </button>
+                    <div class="row" style="margin-left: 10px;">
+                        <div class="col-md-3 luoji1" data-toggle="popover">
+                            <img jtk-node-type="luoji1" src="images/luoji1.png">
+                        </div>
+                        <div class="col-md-3 luoji2" data-toggle="popover">
+                            <img jtk-node-type="luoji2" src="images/luoji2.png">
+                        </div>
+                        <div class="col-md-3 luoji3" data-toggle="popover">
+                            <img jtk-node-type="luoji3" src="images/luoji3.png">
+                        </div>
+                        <div class="col-md-3" data-toggle="popover">
+                        </div>
+                    </div>
+                </div>
+                <!-- miniview -->
+                <div class="miniview"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- the current dataset -->
+<div id="preData" class="jtk-demo-dataset" style="display:none;"></div>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jsplumbtoolkit.js"></script>
+<script src="js/context.js"></script>
+<script src="js/layer/layer.js"></script>
+<script src="js/syntax-highlighter.js"></script>
+<script src="js/jsPlumb/app.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jsPlumb/init.js"></script>
+</body>
+</html>
